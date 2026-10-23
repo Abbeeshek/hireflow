@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 let memoryServer = null;
 
@@ -6,9 +9,9 @@ export const connectDB = async (uriOverride = null) => {
   const uri = uriOverride || process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/hireflow';
 
   try {
-    // Attempt standard connection with a short serverSelectionTimeoutMS
+    // Attempt standard connection with serverSelectionTimeoutMS
     await mongoose.connect(uri, {
-      serverSelectionTimeoutMS: 2000
+      serverSelectionTimeoutMS: 10000
     });
     console.log(`[Database] Connected to MongoDB at ${mongoose.connection.host}:${mongoose.connection.port}/${mongoose.connection.name}`);
     return mongoose.connection;
