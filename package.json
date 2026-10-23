@@ -1,0 +1,17 @@
+{
+  "name": "hireflow-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HireFlow - AI-Assisted Recruitment Platform (Phase 1 ATS Foundation)",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "seed": "npm run seed --prefix server",
+    "seed:ai": "npm run seed:ai --prefix server",
+    "ai:warm": "npm run ai:warm --prefix server",
+    "test": "npm run test --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
